@@ -12,6 +12,8 @@ export const parse = async() => {
 
   return {
     weather: (<any> weatherData)[data.weather[0].id],
-    temp: `(${data.main.temp_min}도 ~ ${data.main.temp_max}도)`
+    temp: `${data.main.temp}도`,
+    temp_min: `${data.main.temp_min}도`,
+    temp_max: `${data.main.temp_max}도`
   };
 };

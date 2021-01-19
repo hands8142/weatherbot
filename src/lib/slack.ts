@@ -4,6 +4,8 @@ interface slackArgs {
   weather: {
     weather: string;
     temp: string;
+    temp_min: string;
+    temp_max: string;
   };
   news: string;
   date: string;
@@ -34,14 +36,21 @@ export default async({ weather, news, date, url }: slackArgs) => {
         short: true,
       },
       {
-        title: '🌡 온도 / 부산',
+        name: '🌡 현재온도 / 서울',
         value: weather.temp,
-        short: true,
+        inline: true
       },
-    ],
-
-    footer: '제작: 재웜',
-    footer_icon: 'https://images-ext-2.discordapp.net/external/GyQicPLz_zQO15bOMtiGTtC4Kud7JjQbs1Ecuz7RrtU/https/cdn.discordapp.com/embed/avatars/1.png',
+      {
+        name: '🌡 최고기온 / 서울',
+        value: weather.temp_max,
+        inline: true
+      },
+      {
+        name: '🌡 최저기온 / 서울',
+        value: weather.temp_min,
+        inline: true
+      }
+    ]
   });
 
   message.attachments.push({

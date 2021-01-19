@@ -4,6 +4,8 @@ interface discordArgs {
   weather: {
     weather: string;
     temp: string;
+    temp_min: string;
+    temp_max: string;
   };
   news: string;
   date: string;
@@ -35,8 +37,18 @@ export default async({ weather, news, date, url }: discordArgs) => {
         inline: true
       },
       {
-        name: '🌡 온도 / 서울',
+        name: '🌡 현재온도 / 서울',
         value: weather.temp,
+        inline: true
+      },
+      {
+        name: '🌡 최고기온 / 서울',
+        value: weather.temp_max,
+        inline: true
+      },
+      {
+        name: '🌡 최저기온 / 서울',
+        value: weather.temp_min,
         inline: true
       }
     ]

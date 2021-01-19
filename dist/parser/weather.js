@@ -12,7 +12,6 @@ var __importDefault = (this && this.__importDefault) || function (mod) {
     return (mod && mod.__esModule) ? mod : { "default": mod };
 };
 Object.defineProperty(exports, "__esModule", { value: true });
-exports.parse = void 0;
 const axios_1 = __importDefault(require("axios"));
 const weather_json_1 = __importDefault(require("./data/weather.json"));
 exports.parse = () => __awaiter(void 0, void 0, void 0, function* () {
@@ -23,6 +22,8 @@ exports.parse = () => __awaiter(void 0, void 0, void 0, function* () {
     console.log('✅ 날씨 파싱 완료');
     return {
         weather: weather_json_1.default[data.weather[0].id],
-        temp: `(${data.main.temp_min}도 ~ ${data.main.temp_max}도)`
+        temp: `${data.main.temp}도`,
+        temp_min: `${data.main.temp_min}도`,
+        temp_max: `${data.main.temp_max}도`
     };
 });

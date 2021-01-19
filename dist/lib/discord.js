@@ -35,8 +35,18 @@ exports.default = ({ weather, news, date, url }) => __awaiter(void 0, void 0, vo
                 inline: true
             },
             {
-                name: '🌡 온도 / 서울',
+                name: '🌡 현재온도 / 서울',
                 value: weather.temp,
+                inline: true
+            },
+            {
+                name: '🌡 최고기온 / 서울',
+                value: weather.temp_max,
+                inline: true
+            },
+            {
+                name: '🌡 최저기온 / 서울',
+                value: weather.temp_min,
                 inline: true
             }
         ]
