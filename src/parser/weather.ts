@@ -14,6 +14,9 @@ export const parse = async() => {
     weather: (<any> weatherData)[data.weather[0].id],
     temp: `${data.main.temp}도`,
     temp_min: `${data.main.temp_min}도`,
-    temp_max: `${data.main.temp_max}도`
+    temp_max: `${data.main.temp_max}도`,
+    feels_like: `${data.main.feels_like}도`,
+    pressure: `${data.main.pressure}파스칼(Pa)`,
+    humidity: `${data.main.humidity}%`
   };
 };

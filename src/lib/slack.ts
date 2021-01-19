@@ -6,6 +6,9 @@ interface slackArgs {
     temp: string;
     temp_min: string;
     temp_max: string;
+    feels_like: string;
+    pressure: string;
+    humidity: string;
   };
   news: string;
   date: string;
@@ -41,6 +44,11 @@ export default async({ weather, news, date, url }: slackArgs) => {
         inline: true
       },
       {
+        name: '🌡 채감온도 / 서울',
+        value: weather.feels_like,
+        inline: true
+      },
+      {
         name: '🌡 최고기온 / 서울',
         value: weather.temp_max,
         inline: true
@@ -48,6 +56,16 @@ export default async({ weather, news, date, url }: slackArgs) => {
       {
         name: '🌡 최저기온 / 서울',
         value: weather.temp_min,
+        inline: true
+      },
+      {
+        name: '🗜 기압 / 서울',
+        value: weather.pressure,
+        inline: true
+      },
+      {
+        name: '💧 습도 / 서울',
+        value: weather.humidity,
         inline: true
       }
     ]

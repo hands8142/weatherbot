@@ -38,6 +38,11 @@ exports.default = ({ weather, news, date, url }) => __awaiter(void 0, void 0, vo
                 inline: true
             },
             {
+                name: '🌡 채감온도 / 서울',
+                value: weather.feels_like,
+                inline: true
+            },
+            {
                 name: '🌡 최고기온 / 서울',
                 value: weather.temp_max,
                 inline: true
@@ -45,6 +50,16 @@ exports.default = ({ weather, news, date, url }) => __awaiter(void 0, void 0, vo
             {
                 name: '🌡 최저기온 / 서울',
                 value: weather.temp_min,
+                inline: true
+            },
+            {
+                name: '🗜 기압 / 서울',
+                value: weather.pressure,
+                inline: true
+            },
+            {
+                name: '💧 습도 / 서울',
+                value: weather.humidity,
                 inline: true
             }
         ]
