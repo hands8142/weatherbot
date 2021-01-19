@@ -1,12 +1,9 @@
-import * as core from '@actions/core';
 import axios from 'axios';
-import cheerio from 'cheerio';
-
 import weatherData from './data/weather.json';
 
 export const parse = async() => {
   const token = process.env.WEATHER_API_KEY;
-  const city = 'Busan';
+  const city = 'Seoul';
 
   const response = await axios.get(`http://api.openweathermap.org/data/2.5/weather?q=${city}&appid=${token}&units=metric`);
   const data = response.data;

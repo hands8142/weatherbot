@@ -13,7 +13,7 @@ export const parse = async() => {
   let discordContent = '';
   let slackContent = '';
 
-  for (let i = 0; i < 3; i++){
+  for (let i = 0; i < 5; i++){
     discordContent += `[${titles[i]}](${links[i]})\n`;
     slackContent += `<${links[i]}|${titles[i]}>\n`;
   }
