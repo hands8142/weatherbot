@@ -1,0 +1,40 @@
+{
+  "name": "letterbot",
+  "version": "1.0.0",
+  "description": "github action 으로 만든 디스코드, 슬랙에 아침 8시에 브리핑 해주는 봇입니다.",
+  "main": "app.ts",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "build": "tsc",
+    "start": "node dist/app.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/cjaewon/letterbot.git"
+  },
+  "keywords": [
+    "letterbot",
+    "github",
+    "ation",
+    "discord",
+    "slack",
+    "letter"
+  ],
+  "author": "cjaewon",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/cjaewon/letterbot/issues"
+  },
+  "homepage": "https://github.com/cjaewon/letterbot#readme",
+  "dependencies": {
+    "@actions/core": "^1.2.6",
+    "@slack/webhook": "^5.0.3",
+    "@types/axios": "^0.14.0",
+    "@types/cheerio": "^0.22.16",
+    "@types/node": "^13.9.1",
+    "axios": "^0.21.1",
+    "cheerio": "^1.0.0-rc.3",
+    "ts-node": "^8.6.2",
+    "typescript": "^3.8.3"
+  }
+}
