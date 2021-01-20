@@ -1,4 +1,5 @@
 import axios from 'axios';
+import { parser } from '../parser/speedName';
 
 interface discordArgs {
   weather: {
@@ -13,12 +14,12 @@ interface discordArgs {
   };
   news: string;
   date: string;
-
   url: string;
 }
 
 export default async({ weather, news, date, url }: discordArgs) => {
   const today = new Date().toLocaleDateString().replace(/\. /g, '-').replace('.', '');
+  const speedName = parser(Number(weather.wind_speed));
 
   let message: any = {
     username: "하루 시작봇",
@@ -62,7 +63,7 @@ export default async({ weather, news, date, url }: discordArgs) => {
       },
       {
         name: '🍃 바람세기 / 서울',
-        value: weather.wind_speed,
+        value: `${weather.wind_speed} ${speedName ? '(' + speedName + ')' : ''}`,
         inline: true
       },
       {

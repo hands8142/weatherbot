@@ -17,7 +17,6 @@ import slack from './lib/slack';
         weather: parsed.weather,
         news: parsed.news.discordContent,
         date: parsed.date,
-
         url,
       });
     } else if (url.includes('hooks.slack.com')) { //slack webhook
@@ -25,7 +24,6 @@ import slack from './lib/slack';
         weather: parsed.weather,
         news: parsed.news.slackContent,
         date: parsed.date,
-
         url,
       })
     }

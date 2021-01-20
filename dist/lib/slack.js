@@ -13,8 +13,10 @@ var __importDefault = (this && this.__importDefault) || function (mod) {
 };
 Object.defineProperty(exports, "__esModule", { value: true });
 const axios_1 = __importDefault(require("axios"));
+const speedName_1 = require("../parser/speedName");
 exports.default = ({ weather, news, date, url }) => __awaiter(void 0, void 0, void 0, function* () {
     const today = new Date().toLocaleDateString().replace(/\. /g, '-').replace('.', '');
+    const speedName = speedName_1.parser(Number(weather.wind_speed));
     let message = {
         attachments: [],
     };
@@ -50,6 +52,11 @@ exports.default = ({ weather, news, date, url }) => __awaiter(void 0, void 0, vo
             {
                 name: '🌡 최저기온 / 서울',
                 value: weather.temp_min,
+                inline: true
+            },
+            {
+                name: '🍃 바람세기 / 서울',
+                value: `${weather.wind_speed} ${speedName ? '(' + speedName + ')' : ''}`,
                 inline: true
             },
             {

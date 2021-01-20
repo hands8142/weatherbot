@@ -1,4 +1,5 @@
 import axios from 'axios';
+import { parser } from '../parser/speedName';
 
 interface slackArgs {
   weather: {
@@ -13,12 +14,12 @@ interface slackArgs {
   };
   news: string;
   date: string;
-
   url: string;
 }
 
 export default async({ weather, news, date, url }: slackArgs) => {
   const today = new Date().toLocaleDateString().replace(/\. /g, '-').replace('.', '');
+  const speedName = parser(Number(weather.wind_speed));
 
   let message: any = {
     attachments: [],
@@ -57,6 +58,11 @@ export default async({ weather, news, date, url }: slackArgs) => {
       {
         name: '🌡 최저기온 / 서울',
         value: weather.temp_min,
+        inline: true
+      },
+      {
+        name: '🍃 바람세기 / 서울',
+        value: `${weather.wind_speed} ${speedName ? '(' + speedName + ')' : ''}`,
         inline: true
       },
       {

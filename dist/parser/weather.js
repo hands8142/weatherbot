@@ -22,6 +22,7 @@ exports.parse = () => __awaiter(void 0, void 0, void 0, function* () {
     console.log('✅ 날씨 파싱 완료');
     return {
         weather: weather_json_1.default[data.weather[0].id],
+        wind_speed: `${data.wind.speed}m/s`,
         temp: `${data.main.temp}도`,
         temp_min: `${data.main.temp_min}도`,
         temp_max: `${data.main.temp_max}도`,
