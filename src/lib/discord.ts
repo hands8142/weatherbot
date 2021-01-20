@@ -103,17 +103,17 @@ export default async ({ weather, news, date, url }: discordArgs) => {
   fields: [
     {
       name: `🌡 ${formatDate(moment(weather.forecast[0].dt * 1000))}온도 / 서울`,
-      value: weather.forecast[0].temp,
+      value: weather.forecast[0].temp + "",
       inline: true
     },
     {
       name: `🌡 ${formatDate(moment(weather.forecast[1].dt * 1000))}온도 / 서울`,
-      value: weather.forecast[1].temp,
+      value: weather.forecast[1].temp + "",
       inline: true
     },
     {
       name: `🌡 ${formatDate(moment(weather.forecast[2].dt * 1000))}온도 / 서울`,
-      value: weather.forecast[2].temp,
+      value: weather.forecast[2].temp + "",
       inline: true
     }
   ]
@@ -133,9 +133,7 @@ export default async ({ weather, news, date, url }: discordArgs) => {
     description: news,
   });
 
-  // await axios.post(url, message);
-  console.log(message2)
-  console.log(message2.embeds[0])
+  await axios.post(url, message);
   await axios.post(url, message2);
   await axios.post(url, message3);
 };
