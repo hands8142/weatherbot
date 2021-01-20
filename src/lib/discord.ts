@@ -133,19 +133,13 @@ export default async ({ weather, news, date, url }: discordArgs) => {
     description: news,
   });
 
-  // await axios.post(url, message);
-  console.log(message2.embeds[0])
+  await axios.post(url, message);
   await axios.post(url, message2);
-  console.log(message3.embeds[0])
   await axios.post(url, message3);
 };
 
 function formatDate(date: Moment) {
   return (
-    date.year() +
-    "년 " +
-    (date.month() + 1) +
-    "월 " +
     date.date() +
     "일 " +
     date.hours() +
