@@ -1,7 +1,6 @@
 import * as core from '@actions/core';
 import parser from './parser';
 import discord from './lib/discord';
-import slack from './lib/slack';
 
 (async () => {
   const WEBHOOKS = process.env.WEBHOOKS;
@@ -19,13 +18,8 @@ import slack from './lib/slack';
         date: parsed.date,
         url,
       });
-    } else if (url.includes('hooks.slack.com')) { //slack webhook
-      await slack({
-        weather: parsed.weather,
-        news: parsed.news.slackContent,
-        date: parsed.date,
-        url,
-      })
+    } else {
+      console.log("웹훅이 이상합니다.")
     }
   });
 

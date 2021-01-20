@@ -22,7 +22,6 @@ Object.defineProperty(exports, "__esModule", { value: true });
 const core = __importStar(require("@actions/core"));
 const parser_1 = __importDefault(require("./parser"));
 const discord_1 = __importDefault(require("./lib/discord"));
-const slack_1 = __importDefault(require("./lib/slack"));
 (() => __awaiter(void 0, void 0, void 0, function* () {
     const WEBHOOKS = process.env.WEBHOOKS;
     if (WEBHOOKS == null)
@@ -38,13 +37,8 @@ const slack_1 = __importDefault(require("./lib/slack"));
                 url,
             });
         }
-        else if (url.includes('hooks.slack.com')) { //slack webhook
-            yield slack_1.default({
-                weather: parsed.weather,
-                news: parsed.news.slackContent,
-                date: parsed.date,
-                url,
-            });
+        else {
+            console.log("웹훅이 이상합니다.");
         }
     }));
     console.log('✅ 웹훅 발송 완료');

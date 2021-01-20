@@ -1,7 +1,6 @@
 import * as weather from './weather';
 import * as news from './news';
 import * as date from './date';
-import * as speedName from './speedName';
 
 const parser = async() => {
   const weatherContent = await weather.parse();

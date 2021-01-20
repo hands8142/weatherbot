@@ -34,6 +34,8 @@
     "@types/node": "^14.14.21",
     "axios": "^0.21.1",
     "cheerio": "^1.0.0-rc.3",
+    "moment": "^2.29.1",
+    "moment-timezone": "^0.5.32",
     "ts-node": "^8.6.2",
     "typescript": "^3.8.3"
   }
