@@ -117,7 +117,7 @@ export default async ({ weather, news, date, url }: discordArgs) => {
     description: news,
   });
   
-  console.log(message)
+  console.log(message.embeds[1])
 
   await axios.post(url, message);
 };
