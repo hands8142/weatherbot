@@ -33,7 +33,7 @@ export default async ({ weather, news, date, url }: discordArgs) => {
     username: "하루 시작봇",
     avatar_url:
       "https://cdn.discordapp.com/attachments/683175932873539589/689459371151065088/message-3592640_1280.jpg",
-    content: `${today}의 하루 시작을 위한 정보를 알려드립니다.`,
+    content: `${today}의 하루 시작을 위한 날씨를 알려드립니다.`,
     embeds: [],
   };
 
@@ -111,15 +111,22 @@ export default async ({ weather, news, date, url }: discordArgs) => {
   ]
 })
 
-  message.embeds.push({
+  let message2: any = {
+    username: "하루 시작봇",
+    avatar_url:
+      "https://cdn.discordapp.com/attachments/683175932873539589/689459371151065088/message-3592640_1280.jpg",
+    content: `${today}의 하루 시작을 위한 뉴스를 알려드립니다.`,
+    embeds: [],
+  };
+
+  message2.embeds.push({
     color: 0x928bff,
     title: "📰 뉴스 / 구글",
     description: news,
   });
-  
-  console.log(message.embeds[1])
 
   await axios.post(url, message);
+  await axios.post(url, message2);
 };
 
 function formatDate(date: Moment) {
