@@ -3,6 +3,7 @@ import axios from 'axios';
 interface slackArgs {
   weather: {
     weather: string;
+    wind_speed: string;
     temp: string;
     temp_min: string;
     temp_max: string;

@@ -3,6 +3,7 @@ import axios from 'axios';
 interface discordArgs {
   weather: {
     weather: string;
+    wind_speed: string;
     temp: string;
     temp_min: string;
     temp_max: string;
@@ -57,6 +58,11 @@ export default async({ weather, news, date, url }: discordArgs) => {
       {
         name: '🌡 최저기온 / 서울',
         value: weather.temp_min,
+        inline: true
+      },
+      {
+        name: '🍃 바람세기 / 서울',
+        value: weather.wind_speed,
         inline: true
       },
       {
