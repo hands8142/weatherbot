@@ -13,7 +13,7 @@ interface discordArgs {
     feels_like: string;
     pressure: string;
     humidity: string;
-    forecast: [Ihour];
+    forecast: [any];
   };
   news: string;
   date: string;
