@@ -116,6 +116,8 @@ export default async ({ weather, news, date, url }: discordArgs) => {
     title: "📰 뉴스 / 구글",
     description: news,
   });
+  
+  console.log(message)
 
   await axios.post(url, message);
 };
