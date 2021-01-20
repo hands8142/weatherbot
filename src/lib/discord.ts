@@ -102,7 +102,7 @@ export default async ({ weather, news, date, url }: discordArgs) => {
       name: `🌡 ${formatDate(moment(weather.forecast[1].dt * 1000))}온도 / 서울`,
       value: weather.forecast[1].temp,
       inline: true
-    }
+    },
     {
       name: `🌡 ${formatDate(moment(weather.forecast[2].dt * 1000))}온도 / 서울`,
       value: weather.forecast[2].temp,
