@@ -19,7 +19,7 @@ interface slackArgs {
 
 export default async({ weather, news, date, url }: slackArgs) => {
   const today = new Date().toLocaleDateString().replace(/\. /g, '-').replace('.', '');
-  const speedName = parser(Number(weather.wind_speed));
+  const speedName = parser(Number(Number(weather.wind_speed.split("m/s")[0]).toFixed(1)) * 10);
 
   let message: any = {
     attachments: [],

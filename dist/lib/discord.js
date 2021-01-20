@@ -16,7 +16,7 @@ const axios_1 = __importDefault(require("axios"));
 const speedName_1 = require("../parser/speedName");
 exports.default = ({ weather, news, date, url }) => __awaiter(void 0, void 0, void 0, function* () {
     const today = new Date().toLocaleDateString().replace(/\. /g, '-').replace('.', '');
-    const speedName = speedName_1.parser(Number(weather.wind_speed));
+    const speedName = speedName_1.parser(Number(Number(weather.wind_speed.split("m/s")[0]).toFixed(1)) * 10);
     let message = {
         username: "하루 시작봇",
         avatar_url: 'https://cdn.discordapp.com/attachments/683175932873539589/689459371151065088/message-3592640_1280.jpg',

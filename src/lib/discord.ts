@@ -19,7 +19,7 @@ interface discordArgs {
 
 export default async({ weather, news, date, url }: discordArgs) => {
   const today = new Date().toLocaleDateString().replace(/\. /g, '-').replace('.', '');
-  const speedName = parser(Number(weather.wind_speed));
+  const speedName = parser(Number(Number(weather.wind_speed.split("m/s")[0]).toFixed(1)) * 10);
 
   let message: any = {
     username: "하루 시작봇",

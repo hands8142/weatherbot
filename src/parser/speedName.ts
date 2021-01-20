@@ -2,31 +2,31 @@ import speedNameData from "./data/speed_name.json";
 
 export const parser = (speed: number): string => {
   let num;
-  if (speed >= 0.0 || speed <= 0.2) {
+  if (speed >= 0 && speed <= 2) {
     num = 1;
-  } else if (speed >= 0.3 || speed <= 1.5) {
+  } else if (speed >= 3 && speed <= 15) {
     num = 2;
-  } else if (speed >= 1.6 || speed <= 3.3) {
+  } else if (speed >= 16 && speed <= 33) {
     num = 3;
-  } else if (speed >= 3.4 || speed <= 5.4) {
+  } else if (speed >= 34 && speed <= 54) {
     num = 4;
-  } else if (speed >= 5.5 || speed <= 7.9) {
+  } else if (speed >= 55 && speed <= 79) {
     num = 5;
-  } else if (speed >= 8.0 || speed <= 10.7) {
+  } else if (speed >= 80 && speed <= 107) {
     num = 6;
-  } else if (speed >= 10.8 || speed <= 13.8) {
+  } else if (speed >= 108 && speed <= 138) {
     num = 7;
-  } else if (speed >= 13.9 || speed <= 17.1) {
+  } else if (speed >= 139 && speed <= 171) {
     num = 8;
-  } else if (speed >= 17.2 || speed <= 20.7) {
+  } else if (speed >= 172 && speed <= 207) {
     num = 9;
-  } else if (speed >= 20.8 || speed <= 24.4) {
+  } else if (speed >= 208 && speed <= 244) {
     num = 10;
-  } else if (speed >= 24.5 || speed <= 28.4) {
+  } else if (speed >= 245 && speed <= 284) {
     num = 11;
-  } else if (speed >= 28.5 || speed <= 32.6) {
+  } else if (speed >= 285 && speed <= 326) {
     num = 12;
-  } else if (speed >= 32.7) {
+  } else if (speed >= 327) {
     num = 13;
   } else {
     num = null;
