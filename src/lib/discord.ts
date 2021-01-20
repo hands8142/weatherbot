@@ -90,13 +90,26 @@ export default async ({ weather, news, date, url }: discordArgs) => {
     ],
   });
 
-  for (let i = 0; i < 3; i++) {
-    message.embeds[0].push({
-      name: `🌡 ${formatDate(moment(weather.forecast[i].dt))}온도 / 서울`,
-      value: weather.forecast[i].temp,
+ message.embeds.push({
+  color: 0x928bff,
+  fields: [
+    {
+      name: `🌡 ${formatDate(moment(weather.forecast[0].dt * 1000))}온도 / 서울`,
+      value: weather.forecast[0].temp,
       inline: true
-    })
-  }
+    },
+    {
+      name: `🌡 ${formatDate(moment(weather.forecast[1].dt * 1000))}온도 / 서울`,
+      value: weather.forecast[1].temp,
+      inline: true
+    }
+    {
+      name: `🌡 ${formatDate(moment(weather.forecast[2].dt * 1000))}온도 / 서울`,
+      value: weather.forecast[2].temp,
+      inline: true
+    }
+  ]
+})
 
   message.embeds.push({
     color: 0x928bff,
