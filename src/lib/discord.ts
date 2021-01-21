@@ -1,6 +1,6 @@
 import axios from "axios";
 import { parser } from "../parser/speedName";
-import moment, { Moment } from "moment-timezone";
+import moment from "moment-timezone";
 import { Ihour } from "../parser/weather";
 import weatherData from "../parser/data/weather.json";
 
@@ -104,13 +104,14 @@ export default async ({ weather, news, date, url }: discordArgs) => {
     fields: [],
   });
 
-  for (let i = 0; i < 6; i++) {
+  for (let i = 0; i < 9; i++) {
     message2.embeds[0].fields.push({
       name: `🌡 ${unixformatDate(weather.forecast[i].dt)}온도 / 서울`,
       value:
         (<any>weatherData)[weather.forecast[i].weather[0].id] +
         ", " +
-        weather.forecast[i].temp,
+        weather.forecast[i].temp + 
+        "도",
       inline: true,
     });
   }
