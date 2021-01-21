@@ -2,6 +2,7 @@ import axios from "axios";
 import { parser } from "../parser/speedName";
 import moment, { Moment } from "moment-timezone";
 import { Ihour } from "../parser/weather";
+import weatherData from "../parser/data/weather.json";
 
 interface discordArgs {
   weather: {
@@ -98,26 +99,21 @@ export default async ({ weather, news, date, url }: discordArgs) => {
     embeds: [],
   };
 
- message2.embeds.push({
-  color: 0x928bff,
-  fields: [
-    {
-      name: `🌡 ${formatDate(moment(weather.forecast[0].dt * 1000).tz("Asia/Seoul"))}온도 / 서울`,
-      value: weather.forecast[0].temp + "",
-      inline: true
-    },
-    {
-      name: `🌡 ${formatDate(moment(weather.forecast[1].dt * 1000).tz("Asia/Seoul"))}온도 / 서울`,
-      value: weather.forecast[1].temp + "",
-      inline: true
-    },
-    {
-      name: `🌡 ${formatDate(moment(weather.forecast[2].dt * 1000).tz("Asia/Seoul"))}온도 / 서울`,
-      value: weather.forecast[2].temp + "",
-      inline: true
-    }
-  ]
-})
+  message2.embeds.push({
+    color: 0x928bff,
+    fields: [],
+  });
+
+  for (let i = 0; i < 6; i++) {
+    message2.embeds[0].fields.push({
+      name: `🌡 ${unixformatDate(weather.forecast[i].dt)}온도 / 서울`,
+      value:
+        (<any>weatherData)[weather.forecast[i].weather[0].id] +
+        ", " +
+        weather.forecast[i].temp,
+      inline: true,
+    });
+  }
 
   let message3: any = {
     username: "하루 시작봇",
@@ -138,11 +134,7 @@ export default async ({ weather, news, date, url }: discordArgs) => {
   await axios.post(url, message3);
 };
 
-function formatDate(date: Moment) {
-  return (
-    date.date() +
-    "일 " +
-    date.hours() +
-    "시 "
-  );
+function unixformatDate(date: number) {
+  const data = moment(date * 1000).tz("Asia/Seoul");
+  return data.date() + "일 " + data.hours() + "시 ";
 }

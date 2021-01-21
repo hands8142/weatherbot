@@ -14,7 +14,7 @@ export const parse = async () => {
     `http://api.openweathermap.org/data/2.5/onecall?lat=${data.coord.lat}&lon=${data.coord.lon}&appid=${token}&units=metric`
   );
   const data2 = response2.data;
-  const forecast: [Ihour] = data2.hourly;
+  const forecast: Ihour[] = data2.hourly;
 
   console.log("✅ 날씨 파싱 완료");
 
